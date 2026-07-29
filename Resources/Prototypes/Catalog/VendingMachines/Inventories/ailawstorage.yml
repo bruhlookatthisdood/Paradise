@@ -1,0 +1,13 @@
+- type: vendingMachineInventory
+  id: AiExperimentalLawStorageInventory
+  startingInventory:
+    NTDefaultCircuitBoard: 1
+    AsimovCircuitBoard: 1
+    CorporateCircuitBoard: 1
+    CommandmentCircuitBoard: 1
+    PaladinCircuitBoard: 1
+    StationEfficiencyCircuitBoard: 1
+    RobocopCircuitBoard: 1
+    GameMasterCircuitBoard: 1
+    NutimovCircuitBoard: 1
+    ArtistCircuitBoard: 1

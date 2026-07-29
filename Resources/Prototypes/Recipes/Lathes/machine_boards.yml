@@ -244,6 +244,13 @@
   id: APECircuitboard
   result: APECircuitboard
 
+# AI
+
+- type: latheRecipe
+  parent: [BaseCircuitboardRecipe, BaseResearchMachineRecipeCategory]
+  id: AiLawStorageCircuitboard
+  result: AiLawStorageCircuitboard
+
 ## Service
 
 - type: latheRecipe
@@ -255,7 +262,7 @@
   parent: [BaseCircuitboardRecipe]
   id: SmartFridgeCircuitboard
   result: SmartFridgeCircuitboard
-  
+
 # Bar
 - type: latheRecipe
   parent: [ BaseCircuitboardRecipe, BaseServiceMachineRecipeCategory ]

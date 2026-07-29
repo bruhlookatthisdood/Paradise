@@ -1367,3 +1367,17 @@
         GlassBeaker:
           amount: 2
           defaultPrototype: Beaker
+
+- type: entity
+  parent: BaseMachineCircuitboard
+  id: AiLawStorageCircuitboard
+  name: AI law storage machine board
+  description: A machine printed circuit board for an AI law storage.
+  components:
+  - type: Sprite
+    state: science
+  - type: MachineBoard
+    prototype: AiLawStorage
+    stackRequirements:
+      Glass: 5
+      Manipulator: 2

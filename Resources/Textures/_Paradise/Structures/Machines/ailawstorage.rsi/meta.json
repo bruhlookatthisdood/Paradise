@@ -1,0 +1,29 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from the Paradise SS13 Github",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "circuits"
+        },
+        {
+            "name": "circuits_powered"
+        },
+        {
+            "name": "circuits1"
+        },
+        {
+            "name": "circuits2"
+        },
+        {
+            "name": "circuits3"
+        },
+        {
+            "name": "circuits_panel"
+        }
+    ]
+}

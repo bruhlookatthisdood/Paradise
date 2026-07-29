@@ -1,0 +1,106 @@
+- type: entity
+  parent: [BaseStructureDynamic, ConstructibleMachine, BaseMachinePowered, BaseConstructibleMachineDestructible]
+  id: AiLawStorage
+  name: AI law storage
+  description: A storage unit filled with circuits to be uploaded to an Artificial Intelligence.
+  components:
+  - type: StationAiWhitelist
+  - type: VocalizerRequiresPower
+  - type: Appearance
+  - type: Sprite
+    sprite: _Paradise/Structures/Machines/ailawstorage.rsi
+    snapCardinals: true
+    layers:
+    - state: "circuits"
+    - state: "circuits_powered"
+      visible: false
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+    - state: "circuits_panel"
+      visible: false
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+    # Currently doesn't support visuals based on how full it is. Coming soon TM
+    # - state: "circuits1"
+    #   visible: false
+    #   map: ["enum.AiVendorVisualLayers.FillLevel"]
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerDeviceVisuals.Powered:
+        enum.PowerDeviceVisualLayers.Powered:
+          True: { visible: true }
+          False: { visible: false }
+  - type: PointLight
+    radius: 1.2
+    energy: 3.0
+    color: "#9dc5c9"
+  - type: Machine
+    board: AiLawStorageCircuitboard
+  - type: ContainerContainer
+    containers:
+      smart_fridge_inventory: !type:Container
+      machine_board: !type:Container
+      machine_parts: !type:Container
+  - type: Construction
+    graph: Machine
+    node: machine
+    containers:
+    - machine_parts
+    - machine_board
+    - smart_fridge_inventory
+  - type: LitOnPowered
+  - type: ApcPowerReceiver
+    powerLoad: 200
+  - type: SmartFridge
+    whitelist:
+      components:
+      - SiliconLawProvider
+  - type: ActivatableUI
+    key: enum.SmartFridgeUiKey.Key
+  - type: ActivatableUIRequiresPower
+  - type: UserInterface
+    interfaces:
+      enum.SmartFridgeUiKey.Key:
+        type: SmartFridgeBoundUserInterface
+  - type: WiresPanel
+  - type: WiresVisuals
+  - type: AccessReader
+  - type: UseDelay
+    delay: 1
+  - type: AntiRottingContainer
+  - type: ResistLocker
+  - type: Physics
+    bodyType: Static
+  - type: Transform
+    noRot: true
+    anchored: True
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.45"
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+        density: 200
+  - type: Anchorable
+    delay: 2
+  - type: InteractionOutline
+  - type: Destructible
+    thresholds:
+    - trigger: !type:DamageTrigger
+        damage: 175
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalGlassBreak
+  - type: Damageable
+    damageModifierSet: Metallic
+  - type: DamageOnHighSpeedImpact
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      collection: MetalThud
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
