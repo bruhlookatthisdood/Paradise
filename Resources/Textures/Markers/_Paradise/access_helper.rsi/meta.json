@@ -1,0 +1,101 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Ported from TGStation, made by Ryll-Ryll at commit e036a96ec44ad8fa57b99c3f8d6a373ea833f8f1",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "airlock_locked_helper"
+        },
+        {
+            "name": "access_base"
+        },
+        {
+            "name": "access_helper_med"
+        },
+        {
+            "name": "access_helper_sci"
+        },
+        {
+            "name": "access_helper_sup"
+        },
+        {
+            "name": "access_helper_eng"
+        },
+        {
+            "name": "access_helper_sec"
+        },
+        {
+            "name": "access_helper_serv"
+        },
+        {
+            "name": "access_helper_com"
+        },
+        {
+            "name": "access_helper_pro"
+        },
+        {
+            "name": "access_windoor",
+            "directions": 4
+        },
+        {
+            "name": "access_windoor_med",
+            "directions": 4
+        },
+        {
+            "name": "access_windoor_sci",
+            "directions": 4
+        },
+        {
+            "name": "access_windoor_sup",
+            "directions": 4
+        },
+        {
+            "name": "access_windoor_eng",
+            "directions": 4
+        },
+        {
+            "name": "access_windoor_sec",
+            "directions": 4
+        },
+        {
+            "name": "access_windoor_serv",
+            "directions": 4
+        },
+        {
+            "name": "access_windoor_com",
+            "directions": 4
+        },
+        {
+            "name": "access_windoor_pro",
+            "directions": 4
+        },
+        {
+            "name": "mail_sorting"
+        },
+        {
+            "name": "mail_sorting_med"
+        },
+        {
+            "name": "mail_sorting_sci"
+        },
+        {
+            "name": "mail_sorting_sup"
+        },
+        {
+            "name": "mail_sorting_eng"
+        },
+        {
+            "name": "mail_sorting_sec"
+        },
+        {
+            "name": "mail_sorting_serv"
+        },
+        {
+            "name": "mail_sorting_com"
+        }
+    ]
+}

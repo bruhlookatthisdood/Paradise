@@ -1,0 +1,13 @@
+﻿- type: entity
+  name: Access Helper
+  id: AccessHelper
+  description: "Base Access Helper"
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - sprite: Markers/_Paradise/access_helper.rsi
+      state: access_base
+      shader: unshaded
+  - type: AccessHelper
+    access: Chapel
