@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Ported from TGStation, made by Ryll-Ryll at commit e036a96ec44ad8fa57b99c3f8d6a373ea833f8f1",
+    "copyright": "Airlock Helpers from Paradise SS13 by S34NW at commit f7c7a705594fe1804519a8f2c67cec489acfb4f4; Airlock Windoor Helpers from Paradise SS13 by Venuska1117 at commit 911910a84937675ad9ae2958f3aeb8c2637b10aa; Mail Sorting helpers by ostrkrs at commit 67f7253c9dc95f2a8f5ff8b902050adacafab1de04361284d8f805220aa82cd1",
     "size": {
         "x": 32,
         "y": 32
@@ -11,91 +11,91 @@
             "name": "airlock_locked_helper"
         },
         {
-            "name": "access_base"
+            "name": "access_helper"
         },
         {
-            "name": "access_helper_med"
+            "name": "access_helper_command"
         },
         {
-            "name": "access_helper_sci"
+            "name": "access_helper_medical"
         },
         {
-            "name": "access_helper_sup"
+            "name": "access_helper_science"
         },
         {
-            "name": "access_helper_eng"
+            "name": "access_helper_cargo"
         },
         {
-            "name": "access_helper_sec"
+            "name": "access_helper_engineer"
         },
         {
-            "name": "access_helper_serv"
+            "name": "access_helper_security"
         },
         {
-            "name": "access_helper_com"
+            "name": "access_helper_service"
         },
         {
-            "name": "access_helper_pro"
+            "name": "access_helper_procedure"
         },
         {
             "name": "access_windoor",
             "directions": 4
         },
         {
-            "name": "access_windoor_med",
+            "name": "access_windoor_medical",
             "directions": 4
         },
         {
-            "name": "access_windoor_sci",
+            "name": "access_windoor_science",
             "directions": 4
         },
         {
-            "name": "access_windoor_sup",
+            "name": "access_windoor_cargo",
             "directions": 4
         },
         {
-            "name": "access_windoor_eng",
+            "name": "access_windoor_engineer",
             "directions": 4
         },
         {
-            "name": "access_windoor_sec",
+            "name": "access_windoor_security",
             "directions": 4
         },
         {
-            "name": "access_windoor_serv",
+            "name": "access_windoor_service",
             "directions": 4
         },
         {
-            "name": "access_windoor_com",
+            "name": "access_windoor_command",
             "directions": 4
         },
         {
-            "name": "access_windoor_pro",
+            "name": "access_windoor_procedure",
             "directions": 4
         },
         {
             "name": "mail_sorting"
         },
         {
-            "name": "mail_sorting_med"
+            "name": "mail_sorting_medical"
         },
         {
-            "name": "mail_sorting_sci"
+            "name": "mail_sorting_science"
         },
         {
-            "name": "mail_sorting_sup"
+            "name": "mail_sorting_cargo"
         },
         {
-            "name": "mail_sorting_eng"
+            "name": "mail_sorting_engineer"
         },
         {
-            "name": "mail_sorting_sec"
+            "name": "mail_sorting_security"
         },
         {
-            "name": "mail_sorting_serv"
+            "name": "mail_sorting_service"
         },
         {
-            "name": "mail_sorting_com"
+            "name": "mail_sorting_command"
         }
     ]
 }
