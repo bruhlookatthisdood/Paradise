@@ -50,7 +50,7 @@ namespace Content.Server._Paradise.AccessHelper
             }
 
             // Is the YML for the helper null?
-            if (entity.Comp.Access == null)
+            if (entity.Comp.Access is null)
             {
                 Log.Warning($"Access Helper(Uid {entity.Owner}) access is set to null! Try checking the YML file?");
                 QueueDel(entity.Owner);
@@ -81,24 +81,13 @@ namespace Content.Server._Paradise.AccessHelper
                 door = (entityUid, airlockComp);
                 var isWindoor = _tagSystem.HasTag(door.Value.Owner, TagWindoor);
 
-                if (isWindoorHelper)
-                {
-                    if (isWindoor && !FindDoorAngle(door.Value.Owner, helperAngle))
-                    {
-                        continue;
-                    }
+                // Checks if isWindoorHelper and isWindoor are neither both true nor both false (XOR on two booleans)
+                if (isWindoorHelper != isWindoor)
+                    continue;
 
-                    if (!isWindoor)
-                        continue;
-
-                }
-
-                if (!isWindoorHelper)
-                {
-                    if (isWindoor)
-                        continue;
-
-                }
+                // If we're a windoor helper, is our door the same angle as us?
+                if (isWindoorHelper && !FindDoorAngle(door.Value.Owner, helperAngle))
+                    continue;
 
                 return true;
             }

@@ -9,7 +9,7 @@ namespace Content.Server._Paradise.AccessHelper
     [RegisterComponent, EntityCategory("Mapping")]
     public sealed partial class AccessHelperComponent : Component
     {
-        [DataField("access")]
-        public ProtoId<AccessLevelPrototype>? Access { get; set; }
+        [DataField]
+        public ProtoId<AccessLevelPrototype>? Access;
     }
 }

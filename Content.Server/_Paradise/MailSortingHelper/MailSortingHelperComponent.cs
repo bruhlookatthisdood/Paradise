@@ -8,7 +8,7 @@ namespace Content.Server._Paradise.MailSortingHelper
     [RegisterComponent, EntityCategory("Mapping")]
     public sealed partial class MailSortingHelperComponent : Component
     {
-        [DataField("mailtag")]
-        public HashSet<string> Mailtag { get; set; } = new();
+        [DataField]
+        public HashSet<string> Mailtag = new();
     }
 }
