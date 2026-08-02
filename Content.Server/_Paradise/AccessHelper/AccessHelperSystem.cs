@@ -8,7 +8,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server.AccessHelper._Paradise
+namespace Content.Server._Paradise.AccessHelper
 {
     public sealed partial class AccessHelperSystem : EntitySystem
     {

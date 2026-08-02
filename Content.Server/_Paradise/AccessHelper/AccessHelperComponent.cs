@@ -1,7 +1,7 @@
 ﻿using Robust.Shared.Prototypes;
 using Content.Shared.Access;
 
-namespace Content.Server.AccessHelper._Paradise
+namespace Content.Server._Paradise.AccessHelper
 {
     /// <summary>
     /// Used by mapping access helpers
