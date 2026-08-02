@@ -1,6 +1,7 @@
 using Content.Shared.Disposal.Router;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
+using Robust.Shared.Graphics.RSI;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.Disposal.Components;

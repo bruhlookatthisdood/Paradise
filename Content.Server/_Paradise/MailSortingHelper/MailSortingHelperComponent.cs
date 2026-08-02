@@ -9,6 +9,6 @@ namespace Content.Server._Paradise.MailSortingHelper
     public sealed partial class MailSortingHelperComponent : Component
     {
         [DataField("mailtag")]
-        public string? Mailtag { get; set; }
+        public HashSet<string> Mailtag { get; set; } = new();
     }
 }
