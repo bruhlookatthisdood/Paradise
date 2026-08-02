@@ -7,8 +7,9 @@
   components:
   - type: Sprite
     sprite: Markers/_Paradise/access_helper.rsi
-    state: access_helper
-    shader: unshaded
+    layers:
+    - state: access_helper
+      shader: unshaded
   - type: AccessHelper
 
 
@@ -22,7 +23,8 @@
   parent: AccessHelper
   components:
   - type: Sprite
-    state: access_helper_command
+    layers:
+    - state: access_helper_command
 
 - type: entity
   id: CaptainAccessHelper
@@ -59,7 +61,8 @@
   parent: AccessHelper
   components:
   - type: Sprite
-    state: access_helper_engineer
+    layers:
+    - state: access_helper_engineer
 
 - type: entity
   id: ChiefEngineerAccessHelper
@@ -112,7 +115,8 @@
   parent: AccessHelper
   components:
   - type: Sprite
-    state: access_helper_medical
+    layers:
+    - state: access_helper_medical
 
 - type: entity
   id: ChiefMedicalOfficerAccessHelper
@@ -157,7 +161,8 @@
   parent: AccessHelper
   components:
   - type: Sprite
-    state: access_helper_science
+    layers:
+    - state: access_helper_science
 
 - type: entity
   id: ResearchDirectorAccessHelper
@@ -186,7 +191,8 @@
   parent: AccessHelper
   components:
   - type: Sprite
-    state: access_helper_security
+    layers:
+    - state: access_helper_security
 
 - type: entity
   id: HeadOfSecurityAccessHelper
@@ -255,7 +261,8 @@
   parent: AccessHelper
   components:
   - type: Sprite
-    state: access_helper_service
+    layers:
+    - state: access_helper_service
 
 - type: entity
   id: ServiceAccessHelper
@@ -332,7 +339,8 @@
   parent: AccessHelper
   components:
   - type: Sprite
-    state: access_helper_cargo
+    layers:
+    - state: access_helper_cargo
 
 - type: entity
   id: CargoAccessHelper
@@ -369,6 +377,7 @@
   components:
   - type: Sprite
     sprite: Markers/_Paradise/access_helper.rsi
-    state: airlock_locked_helper
-    shader: unshaded
+    layers:
+    - state: airlock_locked_helper
+      shader: unshaded
   - type: DoorBoltHelper

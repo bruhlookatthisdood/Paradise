@@ -7,14 +7,15 @@
   components:
   - type: Sprite
     sprite: Markers/_Paradise/access_helper.rsi
-    state: access_windoor
-    shader: unshaded
+    layers:
+    - state: access_windoor
+      shader: unshaded
   - type: AccessHelper
   - type: Tag
     tags:
-      - WindoorHelper
+    - WindoorHelper
 
-# Command Access Windoor Helpers
+# region Command Access Windoor Helpers
 
 - type: entity
   abstract: true
@@ -24,7 +25,8 @@
   parent: AccessWindoorHelper
   components:
   - type: Sprite
-    state: access_windoor_command
+    layers:
+    - state: access_windoor_command
 
 - type: entity
   id: CaptainAccessWindoorHelper
@@ -49,8 +51,9 @@
   components:
   - type: AccessHelper
     access: Command
+# endregion
 
-# Engineering Access Windoor Helpers
+# region Engineering Access Windoor Helpers
 
 - type: entity
   abstract: true
@@ -60,7 +63,8 @@
   parent: AccessWindoorHelper
   components:
   - type: Sprite
-    state: access_windoor_engineer
+    layers:
+    - state: access_windoor_engineer
 
 - type: entity
   id: ChiefEngineerAccessWindoorHelper
@@ -101,8 +105,9 @@
   components:
   - type: AccessHelper
     access: Maintenance
+# endregion
 
-# Medical Access Windoor Helpers
+# region Medical Access Windoor Helpers
 
 - type: entity
   abstract: true
@@ -112,7 +117,8 @@
   parent: AccessWindoorHelper
   components:
   - type: Sprite
-    state: access_windoor_medical
+    layers:
+    - state: access_windoor_medical
 
 - type: entity
   id: ChiefMedicalOfficerAccessWindoorHelper
@@ -145,8 +151,9 @@
   components:
   - type: AccessHelper
     access: Paramedic
+# endregion
 
-# Science Access Windoor Helpers
+# region Science Access Windoor Helpers
 
 - type: entity
   abstract: true
@@ -156,7 +163,8 @@
   parent: AccessWindoorHelper
   components:
   - type: Sprite
-    state: access_windoor_science
+    layers:
+    - state: access_windoor_science
 
 - type: entity
   id: ResearchDirectorAccessWindoorHelper
@@ -173,8 +181,9 @@
   components:
   - type: AccessHelper
     access: Research
+# endregion
 
-# Security Access Windoor Helpers
+# region Security Access Windoor Helpers
 
 - type: entity
   abstract: true
@@ -184,7 +193,8 @@
   parent: AccessWindoorHelper
   components:
   - type: Sprite
-    state: access_windoor_security
+    layers:
+    - state: access_windoor_security
 
 - type: entity
   id: HeadOfSecurityAccessWindoorHelper
@@ -241,8 +251,9 @@
   components:
   - type: AccessHelper
     access: GenpopLeave
+# endregion
 
-# Service Access Windoor Helpers
+# region Service Access Windoor Helpers
 
 - type: entity
   abstract: true
@@ -252,7 +263,8 @@
   parent: AccessWindoorHelper
   components:
   - type: Sprite
-    state: access_windoor_service
+    layers:
+    - state: access_windoor_service
 
 - type: entity
   id: ServiceAccessWindoorHelper
@@ -317,8 +329,9 @@
   components:
   - type: AccessHelper
     access: Theatre
+# endregion
 
-# Cargo Access Windoor Helpers
+# region Cargo Access Windoor Helpers
 
 - type: entity
   abstract: true
@@ -328,7 +341,8 @@
   parent: AccessWindoorHelper
   components:
   - type: Sprite
-    state: access_windoor_cargo
+    layers:
+    - state: access_windoor_cargo
 
 - type: entity
   id: CargoAccessWindoorHelper
@@ -353,3 +367,4 @@
   components:
   - type: AccessHelper
     access: Salvage
+# endregion
