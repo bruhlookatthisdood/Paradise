@@ -35,13 +35,6 @@ public sealed partial class MailStoringHelperSystem : EntitySystem
         QueueDel(uid);
     }
 
-    // THE IDEA:
-    // 1. Get the tile we are currently on
-    // 2. Check the entities on this tile until we find the disposal junction
-    // 3. Change hashset to whatever is set as 'mailtag' in the component
-    // USEFUL INFO:
-    // Disposal Routers have DisposalRouterComponent
-
     private bool GetJunction(EntityUid? gridId, EntityCoordinates coordinates, [NotNullWhen(true)] out Entity<DisposalRouterComponent>? junction)
     {
         junction = null;
