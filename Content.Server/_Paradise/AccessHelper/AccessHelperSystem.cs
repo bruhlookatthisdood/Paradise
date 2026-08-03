@@ -1,18 +1,18 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using Content.Server._Paradise.MappingHelpers;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.Doors.Components;
 using Content.Shared.Tag;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
-using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server._Paradise.AccessHelper
 {
     public sealed partial class AccessHelperSystem : EntitySystem
     {
-        [Dependency] private SharedMapSystem _mapSystem = default!;
+        [Dependency] private MappingHelperSystem _mappingHelperSystem = default!;
         [Dependency] private SharedContainerSystem _containerSystem = default!;
         [Dependency] private AccessReaderSystem _accessReaderSystem = default!;
         [Dependency] private TagSystem _tagSystem = default!;
@@ -67,12 +67,8 @@ namespace Content.Server._Paradise.AccessHelper
         {
             door = null;
 
-            // Is it on the grid? If not, it's probably not a door.
-            if (!TryComp<MapGridComponent>(gridId, out var grid))
-                return false;
-
             // Starts going through all the entities on the same tile as the helper.
-            foreach (var entityUid in _mapSystem.GetLocal(gridId.Value, grid, coordinates))
+            foreach (var entityUid in _mappingHelperSystem.GetLocalEntities(gridId, coordinates, isWindoorHelper))
             {
                 // Checks if the door has airlockcomponent, returns false if not found
                 if (!TryComp<AirlockComponent>(entityUid, out var airlockComp))

@@ -1,4 +1,5 @@
-﻿using Robust.Shared.Prototypes;
+﻿using Content.Server._Paradise.MappingHelpers;
+using Robust.Shared.Prototypes;
 using Content.Shared.Access;
 
 namespace Content.Server._Paradise.AccessHelper
@@ -7,7 +8,7 @@ namespace Content.Server._Paradise.AccessHelper
     /// Used by mapping access helpers
     /// </summary>
     [RegisterComponent, EntityCategory("Mapping")]
-    public sealed partial class AccessHelperComponent : Component
+    public sealed partial class AccessHelperComponent : MappingHelperComponent
     {
         [DataField]
         public ProtoId<AccessLevelPrototype>? Access;
