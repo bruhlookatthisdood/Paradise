@@ -23,20 +23,20 @@ namespace Content.Server._Paradise.AccessHelper
         public override void Initialize()
         {
             base.Initialize();
-            SubscribeLocalEvent<AccessHelperComponent, MapInitEvent>(OnMapInit);
+            SubscribeLocalEvent<AccessHelperComponent, ApplyMappingHelperEvent>(OnEvent);
         }
 
-        private void OnMapInit(Entity<AccessHelperComponent> entity, ref MapInitEvent args)
+        private void OnEvent(Entity<AccessHelperComponent> entity, ref ApplyMappingHelperEvent args)
         {
             var transform = Transform(entity.Owner);
-            var coordinates = transform.Coordinates;
-            var gridId = transform.GridUid;
             var helperAngle = transform.LocalRotation;
             var isWindoorHelper = _tagSystem.HasTag(entity.Owner, TagWindoorHelper);
+            var tileEntities = args.LocalEntities;
 
             // Is there a door on the same grid as the helper? Also checks for windoors and windoorhelpers.
-            if (!FindDoor(gridId, coordinates, helperAngle, isWindoorHelper, out var door))
+            if (!FindDoor(tileEntities, helperAngle, isWindoorHelper, out var door))
             {
+                Log.Warning("Failed to find door!");
                 QueueDel(entity.Owner);
                 return;
             }
@@ -58,21 +58,25 @@ namespace Content.Server._Paradise.AccessHelper
             }
 
             // Attempts to add the access to the accessReader, then queues marker for deletion.
+            Log.Warning("Finished access On Event!");
             _accessReaderSystem.TryAddAccess(accessReader.Value, entity.Comp.Access.Value);
             QueueDel(entity.Owner);
         }
 
         // Do we have a door on our grid?
-        private bool FindDoor(EntityUid? gridId, EntityCoordinates coordinates, Angle helperAngle, bool isWindoorHelper, [NotNullWhen(true)] out Entity<AirlockComponent>? door)
+        private bool FindDoor(IEnumerable<EntityUid> tileEntities, Angle helperAngle, bool isWindoorHelper, [NotNullWhen(true)] out Entity<AirlockComponent>? door)
         {
             door = null;
 
             // Starts going through all the entities on the same tile as the helper.
-            foreach (var entityUid in _mappingHelperSystem.GetLocalEntities(gridId, coordinates, isWindoorHelper))
+            foreach (var entityUid in tileEntities)
             {
                 // Checks if the door has airlockcomponent, returns false if not found
                 if (!TryComp<AirlockComponent>(entityUid, out var airlockComp))
+                {
+                    Log.Warning("Failed to find component!");
                     continue;
+                }
 
                 door = (entityUid, airlockComp);
                 var isWindoor = _tagSystem.HasTag(door.Value.Owner, TagWindoor);
@@ -88,7 +92,6 @@ namespace Content.Server._Paradise.AccessHelper
                 return true;
             }
 
-            Log.Warning($"Access Helper was placed incorrectly at {coordinates}!");
             return false;
         }
 

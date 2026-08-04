@@ -9,10 +9,11 @@ public sealed partial class MappingHelperSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<MappingHelperComponent, MapInitEvent>(GetLocalEntities);
+        SubscribeLocalEvent<MappingHelperComponent, MapInitEvent>(OnMappingHelperInit);
     }
 
-    public IEnumerable<EntityUid> GetLocalEntities(EntityUid uid, MappingHelperComponent component, MapInitEvent args)
+
+    private void OnMappingHelperInit(EntityUid uid, MappingHelperComponent component, MapInitEvent args)
     {
         var transform = Transform(uid);
         var gridId = transform.GridUid;
@@ -20,10 +21,18 @@ public sealed partial class MappingHelperSystem : EntitySystem
 
         // Is it on the grid? If not, it's probably not what we're looking for.
         if (!TryComp<MapGridComponent>(gridId, out var grid))
-            return Enumerable.Empty<EntityUid>();
+        {
+            Log.Warning("Failure at finding grid");
+            return;
+        }
 
-        return _mapSystem.GetLocal(uid, grid, coordinates);
+        var localEntities = _mapSystem.GetLocal(uid, grid, coordinates);
+        var amhEvent = new ApplyMappingHelperEvent(localEntities);
 
-
+        Log.Warning("OnMappingHelperInit finished");
+        RaiseLocalEvent(uid, ref amhEvent);
     }
 }
+
+[ByRefEvent]
+public readonly record struct ApplyMappingHelperEvent(IEnumerable<EntityUid> LocalEntities);
