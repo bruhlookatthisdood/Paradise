@@ -29,7 +29,6 @@ public sealed partial class MappingHelperSystem : EntitySystem
         var localEntities = _mapSystem.GetLocal(uid, grid, coordinates);
         var amhEvent = new ApplyMappingHelperEvent(localEntities);
 
-        Log.Warning("OnMappingHelperInit finished");
         RaiseLocalEvent(uid, ref amhEvent);
     }
 }
