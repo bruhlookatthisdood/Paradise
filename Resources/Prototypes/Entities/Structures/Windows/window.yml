@@ -116,6 +116,31 @@
     price: 70
 
 - type: entity
+  parent: Window
+  id: ElectrochromicWindow
+  name: electrochromic window
+  components:
+  - type: Sprite
+    drawdepth: WallTops
+    sprite: Structures/Windows/tinted_window.rsi
+  - type: Icon
+    sprite: Structures/Windows/tinted_window.rsi
+  - type: IconSmooth
+    base: twindow
+  - type: Construction
+    graph: Window
+    node: tintedWindow
+  - type: Electrochromic
+  - type: DeviceNetwork
+    deviceNetId: Wired
+    receiveFrequencyId: BasicDevice
+  - type: DeviceList
+  - type: DeviceLinkSink
+    ports:
+    - Toggle
+
+
+- type: entity
   abstract: true
   id: BaseRCDResistant
   components:
