@@ -1,18 +1,16 @@
 ﻿using System.Diagnostics.CodeAnalysis;
-using Content.Server._Paradise.MappingHelpers;
+using Content.Server._Paradise.GameObjects.GatherTargets;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.Doors.Components;
 using Content.Shared.Tag;
 using Robust.Shared.Containers;
-using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server._Paradise.AccessHelper
 {
     public sealed partial class AccessHelperSystem : EntitySystem
     {
-        [Dependency] private MappingHelperSystem _mappingHelperSystem = default!;
         [Dependency] private SharedContainerSystem _containerSystem = default!;
         [Dependency] private AccessReaderSystem _accessReaderSystem = default!;
         [Dependency] private TagSystem _tagSystem = default!;
@@ -23,15 +21,17 @@ namespace Content.Server._Paradise.AccessHelper
         public override void Initialize()
         {
             base.Initialize();
-            SubscribeLocalEvent<AccessHelperComponent, ApplyMappingHelperEvent>(OnEvent);
+            SubscribeLocalEvent<AccessHelperComponent, MapInitEvent>(OnEvent);
         }
 
-        private void OnEvent(Entity<AccessHelperComponent> entity, ref ApplyMappingHelperEvent args)
+        private void OnEvent(Entity<AccessHelperComponent> entity, ref MapInitEvent args)
         {
             var transform = Transform(entity.Owner);
             var helperAngle = transform.LocalRotation;
             var isWindoorHelper = _tagSystem.HasTag(entity.Owner, TagWindoorHelper);
-            var tileEntities = args.LocalEntities;
+            var targetEvent = new GatherTargetsEvent();
+            RaiseLocalEvent(entity, ref targetEvent);
+            var tileEntities = targetEvent.Targets;
 
             // Is there a door on the same grid as the helper? Also checks for windoors and windoorhelpers.
             if (!FindDoor(tileEntities, helperAngle, isWindoorHelper, out var door))
