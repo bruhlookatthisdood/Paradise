@@ -10,18 +10,16 @@
     "states":
     [
         {
-            "name": "icon"
+            "name": "burningbanner",
+            "delays": [
+                [0.2, 0.2, 0.2]
+            ]
         },
         {
-            "name": "icon-rolled"
-        },
-        {
-            "name": "inhand-right",
-            "directions": 4
-        },
-        {
-            "name": "inhand-left",
-            "directions": 4
+            "name": "burningbanner-rolled",
+            "delays": [
+                [0.2, 0.2, 0.2]
+            ]
         }
     ]
 }
