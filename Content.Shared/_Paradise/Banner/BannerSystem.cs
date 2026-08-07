@@ -20,13 +20,14 @@ public sealed partial class BannerSystem : EntitySystem
 
     private void OnUseInHand(EntityUid uid, BannerComponent component, UseInHandEvent args)
     {
-        // Makes sure we only run this once when we use in hand
         if (!_timing.IsFirstTimePredicted)
+        {
+            _appearanceSystem.SetData(uid, BannerVisuals.State, component.State);
             return;
+        }
 
-        // Basically saying set us to the opposite state of whatever we are now, then set new state as our visual
+        // Basically saying set us to the opposite state of whatever we are now.
         component.State = component.State == BannerVisualsState.Rolled ? BannerVisualsState.Unrolled : BannerVisualsState.Rolled;
-        _appearanceSystem.SetData(uid, BannerVisuals.State, component.State);
         args.Handled = true;
     }
 
@@ -40,6 +41,8 @@ public sealed partial class BannerSystem : EntitySystem
         component.Burning = true;
         _appearanceSystem.SetData(uid, BannerVisuals.Burning, component.Burning);
 
+
+        // This needs to be replaced, we can't use this but I don't know exactly what else to use right now.
         Timer.Spawn(TimeSpan.FromSeconds(6), () =>
         {
             // Did we get destroyed since we were set on fire?
