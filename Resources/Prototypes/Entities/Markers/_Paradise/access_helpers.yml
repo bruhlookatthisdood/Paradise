@@ -11,7 +11,7 @@
     - state: access_helper
       shader: unshaded
   - type: AccessHelper
-  - type: SameTileGatherTargets
+  - type: LocalGatherTargets
 
 
 # region Command Access Helpers

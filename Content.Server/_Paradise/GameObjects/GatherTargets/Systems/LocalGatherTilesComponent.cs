@@ -23,7 +23,7 @@ public sealed partial class SameTileMappingSelectorSystem : EntitySystem
             localEntities = null;
             return false;
         }
-        localEntities = _mapSystem.GetLocal(uid, grid, coordinates);
+        localEntities = _mapSystem.GetLocal(gridId.Value, grid, coordinates);
         return true;
     }
 
