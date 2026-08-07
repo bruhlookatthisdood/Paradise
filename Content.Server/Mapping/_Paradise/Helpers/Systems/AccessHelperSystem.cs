@@ -58,8 +58,6 @@ namespace Content.Server._Paradise.AccessHelper
                 return;
             }
 
-            // Attempts to add the access to the accessReader, then queues marker for deletion.
-            Log.Warning("Finished access On Event!");
             _accessReaderSystem.TryAddAccess(accessReader.Value, entity.Comp.Access.Value);
             QueueDel(entity.Owner);
         }

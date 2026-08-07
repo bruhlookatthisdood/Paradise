@@ -10,7 +10,7 @@ namespace Content.Server._Paradise.DoorBoltHelper;
 public sealed partial class DoorBoltHelperSystem : EntitySystem
 {
     [Dependency] private SharedDoorSystem _doorSystem = default!;
-    [Dependency] private SharedMapSystem _mapSystem = default!;
+
     public override void Initialize()
     {
         base.Initialize();
