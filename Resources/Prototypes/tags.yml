@@ -1558,6 +1558,14 @@
 - type: Tag
   id: WhitelistChameleonPDA # Chameleon key for ChameleonPDA
 
+# Paradise Content - Windoor Access Helpers
+
+- type: Tag
+  id: Windoor # Tagged entity is a windoor. Used for windoor access helpers
+
+- type: Tag
+  id: WindoorHelper # Windoor Access Helper
+
 - type: Tag
   id: Window # Tagged entity is a window. Several systems and several targeting whitelists (XenoArtifactShatterWindows) care about this.
              # .cs: SharedNavMapSystem, ElectrocutionSystem, RevenantSystem, NoWindowsInTile
