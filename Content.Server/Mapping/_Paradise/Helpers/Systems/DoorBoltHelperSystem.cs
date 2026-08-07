@@ -1,4 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
+using Content.Server._Paradise.GameObjects.GatherTargets;
 using Content.Shared.Doors.Components;
 using Content.Shared.Doors.Systems;
 using Robust.Shared.Map;
@@ -21,9 +22,12 @@ public sealed partial class DoorBoltHelperSystem : EntitySystem
     {
         var transform = Transform(uid);
         var coordinates = transform.Coordinates;
-        var gridId = transform.GridUid;
 
-        if (!FindBoltableDoor(gridId, coordinates, out var door))
+        var targetEvent = new GatherTargetsEvent();
+        RaiseLocalEvent(uid, ref targetEvent);
+        var tileEntities = targetEvent.Targets;
+
+        if (!FindBoltableDoor(tileEntities, out var door))
         {
             Log.Warning($"Door Bolt Helper ({uid}) was unable to find boltable door at {coordinates}.");
             QueueDel(uid);
@@ -34,16 +38,11 @@ public sealed partial class DoorBoltHelperSystem : EntitySystem
         QueueDel(uid);
     }
 
-    private bool FindBoltableDoor(EntityUid? gridId,
-        EntityCoordinates coordinates,
+    private bool FindBoltableDoor(IEnumerable<EntityUid> tileEntities,
         [NotNullWhen(true)] out Entity<DoorBoltComponent>? door)
     {
         door = null;
-
-        if (!TryComp<MapGridComponent>(gridId, out var grid))
-            return false;
-
-        foreach (var entityUid in _mapSystem.GetLocal(gridId.Value, grid, coordinates))
+        foreach (var entityUid in tileEntities)
         {
             if (!TryComp<DoorBoltComponent>(entityUid, out var doorBoltComponent))
                 continue;

@@ -27,6 +27,7 @@ namespace Content.Server._Paradise.AccessHelper
         private void OnEvent(Entity<AccessHelperComponent> entity, ref MapInitEvent args)
         {
             var transform = Transform(entity.Owner);
+            var coordinates = transform.Coordinates;
             var helperAngle = transform.LocalRotation;
             var isWindoorHelper = _tagSystem.HasTag(entity.Owner, TagWindoorHelper);
             var targetEvent = new GatherTargetsEvent();
@@ -36,7 +37,7 @@ namespace Content.Server._Paradise.AccessHelper
             // Is there a door on the same grid as the helper? Also checks for windoors and windoorhelpers.
             if (!FindDoor(tileEntities, helperAngle, isWindoorHelper, out var door))
             {
-                Log.Warning("Failed to find door!");
+                Log.Warning($"Access Helper ({entity.Owner}) was unable to find boltable door at {coordinates}.");
                 QueueDel(entity.Owner);
                 return;
             }
