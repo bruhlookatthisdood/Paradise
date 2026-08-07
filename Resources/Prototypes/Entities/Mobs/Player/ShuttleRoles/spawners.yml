@@ -46,7 +46,7 @@
   - type: Sprite
     layers:
       - state: red
-      - sprite: Structures/Decoration/_Paradise/Banners/atmospherics.rsi
+      - sprite: Objects/Decoration/_Paradise/Banners/atmospherics.rsi
         state: icon
   - type: RandomSpawner
     prototypes:
