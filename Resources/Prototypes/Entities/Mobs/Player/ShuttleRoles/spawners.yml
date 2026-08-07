@@ -102,7 +102,7 @@
   - type: Sprite
     layers:
       - state: red
-      - sprite: Objects/Decoration/_Paradise/Banners/research.rsi
+      - sprite: Objects/Decoration/_Paradise/Banners/science.rsi
         state: icon
   - type: RandomSpawner
     prototypes:
@@ -459,7 +459,7 @@
   - type: Sprite
     layers:
       - state: red
-      - sprite: Objects/Decoration/_Paradise/Banners/research.rsi
+      - sprite: Objects/Decoration/_Paradise/Banners/science.rsi
         state: icon
   - type: RandomSpawner
     prototypes:
@@ -477,7 +477,7 @@
   - type: Sprite
     layers:
       - state: red
-      - sprite: Objects/Decoration/_Paradise/Banners/research.rsi
+      - sprite: Objects/Decoration/_Paradise/Banners/science.rsi
         state: icon
   - type: RandomSpawner
     prototypes:
@@ -491,7 +491,7 @@
   - type: Sprite
     layers:
       - state: red
-      - sprite: Objects/Decoration/_Paradise/Banners/research.rsi
+      - sprite: Objects/Decoration/_Paradise/Banners/science.rsi
         state: icon
   - type: RandomSpawner
     prototypes:

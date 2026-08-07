@@ -229,7 +229,7 @@
   description: The banner of the independent, sovereign nation of Scientopia. Looking at this laminated beauty of a banner fills you with an irresistible urge to perform SCIENCE!
   components:
   - type: Sprite
-    sprite: Objects/Decoration/_Paradise/Banners/research.rsi
+    sprite: Objects/Decoration/_Paradise/Banners/science.rsi
   - type: Banner
 
 - type: entity
