@@ -169,7 +169,7 @@
   description: The banner of the independent, sovereign nation of Medistan. Looking at this beautiful white and green banner fills you with a powerful compulsion to file malpractice lawsuits.
   components:
   - type: Sprite
-    sprite: Objects/Decoration/_Paradise/Banners/med.rsi
+    sprite: Objects/Decoration/_Paradise/Banners/medical.rsi
   - type: Banner
 
 - type: entity
