@@ -107,6 +107,8 @@
       path: /Audio/Machines/windoor_open.ogg
     denySound:
       path: /Audio/Machines/airlock_deny.ogg
+    checkFixtureCollision: true
+    allowMachineLayer: true
   - type: Airlock
     keepOpenIfClicked: true
     openPanelVisible: true
@@ -150,8 +152,10 @@
   - type: PryUnpowered
   - type: Tag
     tags:
-    - DoorRemoteWhitelist
+      - DoorRemoteWhitelist
     # This tag is used by door remotes to allow or not a door remote to normally be able to interact with a door
+      - Windoor
+    # Paradise Content - Tag used by access helpers to help them tell between a windoor and airlock
 
 - type: entity
   abstract: true
@@ -258,6 +262,8 @@
       # This tag is used to nagivate the Airlock construction graph. It's needed because the construction graph is shared between Airlock, AirlockGlass, and HighSecDoor
       - DoorRemoteWhitelist
       # This tag is used by door remotes to allow or not a door remote to normally be able to interact with a door
+      - Windoor
+      # Paradise Content - Tag used by access helpers to help them tell between a windoor and airlock
 
 
 #Plasma Windoors
@@ -328,6 +334,8 @@
       # This tag is used to nagivate the Airlock construction graph. It's needed because the construction graph is shared between Airlock, AirlockGlass, and HighSecDoor
       - DoorRemoteWhitelist
       # This tag is used by door remotes to allow or not a door remote to normally be able to interact with a door
+      - Windoor
+      # Paradise Content - Tag used by access helpers to help them tell between a windoor and airlock
 
 
 #Uranium Windoors
@@ -398,3 +406,5 @@
       # This tag is used to nagivate the Airlock construction graph. It's needed because the construction graph is shared between Airlock, AirlockGlass, and HighSecDoor
       - DoorRemoteWhitelist
       # This tag is used by door remotes to allow or not a door remote to normally be able to interact with a door
+      - Windoor
+      # Paradise Content - Tag used by access helpers to help them tell between a windoor and airlock
