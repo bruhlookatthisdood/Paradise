@@ -11,6 +11,7 @@
     - state: access_windoor
       shader: unshaded
   - type: AccessHelper
+  - type: LocalGatherTargets
   - type: Tag
     tags:
     - WindoorHelper
