@@ -6,12 +6,12 @@ namespace Content.Shared._Paradise.Banner;
 public enum BannerVisuals : byte
 {
     State,
+    Burning,
 }
 
 [Serializable, NetSerializable]
-public enum BannerVisualState : byte
+public enum BannerVisualsState : byte
 {
     Unrolled,
     Rolled,
-    Burning,
 }
