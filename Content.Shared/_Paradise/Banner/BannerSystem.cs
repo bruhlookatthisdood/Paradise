@@ -1,7 +1,6 @@
 ﻿using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Tools.Components;
-using Robust.Shared.Spawners;
 using Robust.Shared.Timing;
 
 namespace Content.Shared._Paradise.Banner;
@@ -37,28 +36,49 @@ public sealed partial class BannerSystem : EntitySystem
         if (!TryComp<WelderComponent>(args.Used, out var weldcomp)|| !weldcomp.Enabled)
             return;
 
-        // Burn baby burn (Set our visual to burning)
+        // Are we already on fire?
+        if (component.Burning)
+            return;
+
+
+        // Burn baby burn (Set our visual to burning, set our end time 'BurnDuration' seconds from now.)
         component.Burning = true;
+        component.BurnEndTime = _timing.CurTime + component.BurnDuration;
         _appearanceSystem.SetData(uid, BannerVisuals.Burning, component.Burning);
-
-
-        // This needs to be replaced, we can't use this but I don't know exactly what else to use right now.
-        Timer.Spawn(TimeSpan.FromSeconds(6), () =>
-        {
-            // Did we get destroyed since we were set on fire?
-            if (!Exists(uid))
-                return;
-
-            // Grab our coordinates
-            var xform = Transform(uid);
-            var coordinates = xform.Coordinates;
-
-            // Spawn ash and destroy our banner. Rest in peace.
-            Spawn("Ash", coordinates);
-            QueueDel(uid);
-        });
-
-
         args.Handled = true;
     }
+
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+        var entities = EntityQueryEnumerator<BannerComponent>();
+        while (entities.MoveNext(out var uid, out var comp))
+        {
+            if (comp.Burning && _timing.CurTime >= comp.BurnEndTime)
+            {
+                Dust(uid, comp);
+            }
+        }
+
+    }
+
+    private void Dust(EntityUid uid, BannerComponent comp)
+    {
+        // Did we get destroyed since we were set on fire?
+        if (!Exists(uid))
+            return;
+
+        // Let's get our location
+        var xform  = Transform(uid);
+        var coordinates = xform.Coordinates;
+
+        // Spawn dust where we are and delete us, all done.
+        if(_timing.IsFirstTimePredicted)
+        {
+            comp.Burning = false;
+            Spawn("Ash", coordinates);
+            QueueDel(uid);
+        }
+    }
+
 }
