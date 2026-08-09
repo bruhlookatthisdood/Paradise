@@ -229,9 +229,9 @@
   targetNode: ventpump
   placementMode: AlignAtmosPipeLayers # Funky
   alternativePrototypes: # Funky
-  - GasVentPump
-  - GasVentPumpAlt1
-  - GasVentPumpAlt2
+    - GasVentPump
+    - GasVentPumpAlt1
+    - GasVentPumpAlt2
 
 - type: construction
   parent: BaseGasUnary
@@ -239,9 +239,9 @@
   targetNode: passivevent
   placementMode: AlignAtmosPipeLayers # Funky
   alternativePrototypes: # Funky
-  - GasPassiveVent
-  - GasPassiveVentAlt1
-  - GasPassiveVentAlt2
+    - GasPassiveVent
+    - GasPassiveVentAlt1
+    - GasPassiveVentAlt2
 
 - type: construction
   parent: BaseGasUnary
@@ -249,9 +249,9 @@
   targetNode: ventscrubber
   placementMode: AlignAtmosPipeLayers # Funky
   alternativePrototypes: # Funky
-  - GasVentScrubber
-  - GasVentScrubberAlt1
-  - GasVentScrubberAlt2
+    - GasVentScrubber
+    - GasVentScrubberAlt1
+    - GasVentScrubberAlt2
 
 - type: construction
   parent: BaseGasUnary
@@ -259,9 +259,9 @@
   targetNode: outletinjector
   placementMode: AlignAtmosPipeLayers # Funky
   alternativePrototypes: # Funky
-  - GasOutletInjector
-  - GasOutletInjectorAlt1
-  - GasOutletInjectorAlt2
+    - GasOutletInjector
+    - GasOutletInjectorAlt1
+    - GasOutletInjectorAlt2
 
 # Port from Funky Station
 - type: construction
@@ -271,9 +271,9 @@
   targetNode: ventpumpAlt1
   placementMode: AlignAtmosPipeLayers
   alternativePrototypes:
-  - GasVentPump
-  - GasVentPumpAlt1
-  - GasVentPumpAlt2
+    - GasVentPump
+    - GasVentPumpAlt1
+    - GasVentPumpAlt2
 
 - type: construction
   id: GasVentPumpAlt2
@@ -282,9 +282,9 @@
   targetNode: ventpumpAlt2
   placementMode: AlignAtmosPipeLayers
   alternativePrototypes:
-  - GasVentPump
-  - GasVentPumpAlt1
-  - GasVentPumpAlt2
+    - GasVentPump
+    - GasVentPumpAlt1
+    - GasVentPumpAlt2
 
 - type: construction
   id: GasPassiveVentAlt1
@@ -293,9 +293,9 @@
   targetNode: passiveventAlt1
   placementMode: AlignAtmosPipeLayers
   alternativePrototypes:
-  - GasPassiveVent
-  - GasPassiveVentAlt1
-  - GasPassiveVentAlt2
+    - GasPassiveVent
+    - GasPassiveVentAlt1
+    - GasPassiveVentAlt2
 
 - type: construction
   id: GasPassiveVentAlt2
@@ -304,9 +304,9 @@
   targetNode: passiveventAlt2
   placementMode: AlignAtmosPipeLayers
   alternativePrototypes:
-  - GasPassiveVent
-  - GasPassiveVentAlt1
-  - GasPassiveVentAlt2
+    - GasPassiveVent
+    - GasPassiveVentAlt1
+    - GasPassiveVentAlt2
 
 - type: construction
   id: GasVentScrubberAlt1
@@ -315,9 +315,9 @@
   targetNode: ventscrubberAlt1
   placementMode: AlignAtmosPipeLayers
   alternativePrototypes:
-  - GasVentScrubber
-  - GasVentScrubberAlt1
-  - GasVentScrubberAlt2
+    - GasVentScrubber
+    - GasVentScrubberAlt1
+    - GasVentScrubberAlt2
 
 - type: construction
   id: GasVentScrubberAlt2
@@ -326,9 +326,9 @@
   targetNode: ventscrubberAlt2
   placementMode: AlignAtmosPipeLayers
   alternativePrototypes:
-  - GasVentScrubber
-  - GasVentScrubberAlt1
-  - GasVentScrubberAlt2
+    - GasVentScrubber
+    - GasVentScrubberAlt1
+    - GasVentScrubberAlt2
 
 - type: construction
   id: GasOutletInjectorAlt1
@@ -337,9 +337,9 @@
   targetNode: outletinjectorAlt1
   placementMode: AlignAtmosPipeLayers
   alternativePrototypes:
-  - GasOutletInjector
-  - GasOutletInjectorAlt1
-  - GasOutletInjectorAlt2
+    - GasOutletInjector
+    - GasOutletInjectorAlt1
+    - GasOutletInjectorAlt2
 
 - type: construction
   id: GasOutletInjectorAlt2
@@ -349,9 +349,9 @@
   placementMode: AlignAtmosPipeLayers
 
   alternativePrototypes:
-  - GasOutletInjector
-  - GasOutletInjectorAlt1
-  - GasOutletInjectorAlt2
+    - GasOutletInjector
+    - GasOutletInjectorAlt1
+    - GasOutletInjectorAlt2
 
 # endregion Unary
 
