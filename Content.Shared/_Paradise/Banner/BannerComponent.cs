@@ -9,9 +9,6 @@ public sealed partial class BannerComponent : Component
     [DataField]
     public bool Burning = false;
 
-    [DataField]
-    public TimeSpan BurnDuration = TimeSpan.FromSeconds(6);
-
     [AutoPausedField]
     public TimeSpan BurnEndTime;
 }

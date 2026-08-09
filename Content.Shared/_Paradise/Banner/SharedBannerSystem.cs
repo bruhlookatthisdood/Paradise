@@ -5,7 +5,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Shared._Paradise.Banner;
 
-public sealed partial class BannerSystem : EntitySystem
+public abstract partial class SharedBannerSystem : EntitySystem
 {
     [Dependency] private SharedAppearanceSystem _appearanceSystem = default!;
     [Dependency] private IGameTiming _timing = default!;
@@ -19,14 +19,9 @@ public sealed partial class BannerSystem : EntitySystem
 
     private void OnUseInHand(EntityUid uid, BannerComponent component, UseInHandEvent args)
     {
-        if (!_timing.IsFirstTimePredicted)
-        {
-            _appearanceSystem.SetData(uid, BannerVisuals.State, component.State);
-            return;
-        }
-
         // Basically saying set us to the opposite state of whatever we are now.
         component.State = component.State == BannerVisualsState.Rolled ? BannerVisualsState.Unrolled : BannerVisualsState.Rolled;
+        _appearanceSystem.SetData(uid, BannerVisuals.State, component.State);
         args.Handled = true;
     }
 
@@ -43,7 +38,7 @@ public sealed partial class BannerSystem : EntitySystem
 
         // Burn baby burn (Set our visual to burning, set our end time 'BurnDuration' seconds from now.)
         component.Burning = true;
-        component.BurnEndTime = _timing.CurTime + component.BurnDuration;
+        component.BurnEndTime = _timing.CurTime + TimeSpan.FromSeconds(5);
         _appearanceSystem.SetData(uid, BannerVisuals.Burning, component.Burning);
         args.Handled = true;
     }
@@ -62,23 +57,8 @@ public sealed partial class BannerSystem : EntitySystem
 
     }
 
-    private void Dust(EntityUid uid, BannerComponent comp)
+    protected virtual void Dust(EntityUid uid, BannerComponent comp)
     {
-        // Did we get destroyed since we were set on fire?
-        if (!Exists(uid))
-            return;
-
-        // Let's get our location
-        var xform  = Transform(uid);
-        var coordinates = xform.Coordinates;
-
-        // Spawn dust where we are and delete us, all done.
-        if(_timing.IsFirstTimePredicted)
-        {
-            comp.Burning = false;
-            Spawn("Ash", coordinates);
-            QueueDel(uid);
-        }
     }
 
 }
