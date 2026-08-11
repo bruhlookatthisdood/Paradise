@@ -35,7 +35,6 @@ public abstract partial class SharedBannerSystem : EntitySystem
         if (component.Burning)
             return;
 
-
         // Burn baby burn (Set our visual to burning, set our end time 'BurnDuration' seconds from now.)
         component.Burning = true;
         component.BurnEndTime = _timing.CurTime + TimeSpan.FromSeconds(5);
@@ -54,11 +53,9 @@ public abstract partial class SharedBannerSystem : EntitySystem
                 Dust(uid, comp);
             }
         }
-
     }
 
     protected virtual void Dust(EntityUid uid, BannerComponent comp)
     {
     }
-
 }
