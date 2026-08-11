@@ -53,6 +53,13 @@
             - type: TradeStation
           paths:
             - /Maps/Shuttles/trading_outpost.yml
+        gulag: !type:GridSpawnGroup
+          addComponents:
+            - type: Gravity
+              enabled: true
+              inherent: true
+          paths:
+            - /Maps/Shuttles/gulag_asteroid.yml
         # Spawn last
         ruins: !type:GridSpawnGroup
           hide: true
