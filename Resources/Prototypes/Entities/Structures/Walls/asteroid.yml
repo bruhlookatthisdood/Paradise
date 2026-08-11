@@ -49,6 +49,48 @@
   description: A rocky asteroid.
 
 - type: entity
+  parent: BaseWall
+  id: AsteroidRockAncient
+  name: ancient asteroid rock
+  components:
+    - type: Damageable
+      damageModifierSet: AncientRock
+    - type: Injurable
+      damageContainer: StructuralInorganic
+    - type: Destructible
+      thresholds:
+        - trigger: !type:DamageTrigger
+            damage: 3000
+          behaviors:
+            - !type:DoActsBehavior
+              acts: ["Destruction"]
+            - !type:PlaySoundBehavior
+              sound:
+                path: /Audio/Effects/break_stone.ogg
+                params:
+                  volume: -6
+    - type: Sprite
+      sprite: Structures/_Paradise/Walls/rock.rsi
+      color: "#242424"
+    - type: Icon
+      sprite: Structures/_Paradise/Walls/rock.rsi
+      state: full
+    - type: IconSmooth
+      key: walls
+      base: state
+    - type: Appearance
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape: !type:PhysShapeAabb
+            bounds: "-0.5,-0.5,0.5,0.5"
+          mask:
+            - FullTileMask
+          layer:
+            - WallLayer
+          density: 2000
+
+- type: entity
   abstract: true
   id: BaseRockGibtonite
   suffix: Gibtonite

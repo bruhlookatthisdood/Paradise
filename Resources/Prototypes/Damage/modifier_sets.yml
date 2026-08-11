@@ -50,6 +50,16 @@
     Blunt: 5
 
 - type: damageModifierSet
+  id: AncientRock
+  coefficients:
+    Structural: 0.3
+    Blunt: 0.1
+    Slash: 0.1
+    Piercing: 0.2
+    Heat: 0.1
+    Shock: 0
+
+- type: damageModifierSet
   id: PerforatedMetallic
   coefficients:
     Blunt: 2
