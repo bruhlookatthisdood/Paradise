@@ -18,7 +18,6 @@ public sealed partial class BannerSystem : SharedBannerSystem
                 Dust(uid, comp);
             }
         }
-
     }
 
     protected override void Dust(EntityUid uid, BannerComponent comp)
