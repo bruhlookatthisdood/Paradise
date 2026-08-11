@@ -97,6 +97,20 @@
     price: 22.5
 
 - type: entity
+  parent: WindowReinforcedDirectional
+  id: WindowReinforcedDirectional
+  name: Electrochromic directional reinforced window
+    - type: Electrochromic
+    - type: DeviceNetwork
+      deviceNetId: Wireless
+      receiveFrequencyId: BasicDevice
+    - type: DeviceLinkSink
+      ports:
+      - Toggle
+    - type: Occluder
+      enabled: false
+
+- type: entity
   parent: ReinforcedWindow
   id: ReinforcedWindowDiagonal
   suffix: diagonal

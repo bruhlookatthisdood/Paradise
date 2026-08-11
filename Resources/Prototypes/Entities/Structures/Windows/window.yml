@@ -138,6 +138,7 @@
     - type: Occluder
       enabled: false
 
+
 - type: entity
   abstract: true
   id: BaseRCDResistant
