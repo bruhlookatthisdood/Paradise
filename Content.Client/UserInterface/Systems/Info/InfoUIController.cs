@@ -31,14 +31,6 @@ public sealed partial class InfoUIController : UIController, IOnStateExited<Game
 
         _netManager.RegisterNetMessage<RulesAcceptedMessage>();
         _netManager.RegisterNetMessage<SendRulesInformationMessage>(OnRulesInformationMessage);
-
-        _consoleHost.RegisterCommand("fuckrules",
-            "",
-            "",
-            (_, _, _) =>
-        {
-            OnAcceptPressed(true);
-        });
     }
 
     private void OnRulesInformationMessage(SendRulesInformationMessage message)
