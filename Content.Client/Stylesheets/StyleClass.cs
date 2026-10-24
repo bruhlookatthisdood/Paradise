@@ -73,7 +73,7 @@ public static class StyleClass
     public const string TooltipTitle = "TooltipTitle";
     public const string TooltipDesc = "TooltipDesc";
 
-    //oasis
+    //paradise
     public const string SurfacePrimary = "SurfacePrimary";
     public const string SurfaceSecondary = "SurfaceSecondary";
     public const string SurfaceTertiary = "SurfaceTertiary";
@@ -89,4 +89,5 @@ public static class StyleClass
 
 
     public const string ChatboxDarkenedBackground = "ChatboxDarkenedBackground";
+    public const string SubColored = "SubColored";
 }
