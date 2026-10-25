@@ -11,7 +11,7 @@
   id: BaseChair
   graph: Seat
   conditions:
-  - !type:TileNotBlocked
+    - !type:TileNotBlocked
 
 - type: construction
   abstract: true
@@ -20,7 +20,7 @@
   graph: Table
   canRotate: false
   conditions:
-  - !type:TileNotBlocked
+    - !type:TileNotBlocked
 
 - type: construction
   abstract: true
@@ -29,7 +29,7 @@
   graph: bed
   canRotate: false
   conditions:
-  - !type:TileNotBlocked
+    - !type:TileNotBlocked
 
 - type: construction
   abstract: true
@@ -74,6 +74,13 @@
   parent: BaseChair
   id: ChairComfy
   targetNode: chairComfy
+
+# Paradise Content - Corporate Comfy Chair
+
+- type: construction
+  parent: BaseChair
+  id: ChairComfyCorporate
+  targetNode: chairComfyCorporate
 
 - type: construction
   parent: BaseChair
@@ -129,6 +136,65 @@
   name: construction-recipe-blue-comf-bench
   targetNode: blueComfBench
 # endregion Chairs
+
+# region Paradise Content - Sofas/Pews
+
+- type: construction
+  parent: BaseChair
+  id: SofaMiddle
+  targetNode: sofaMiddle
+
+- type: construction
+  parent: BaseChair
+  id: SofaEndRight
+  targetNode: sofaEndRight
+
+- type: construction
+  parent: BaseChair
+  id: SofaEndLeft
+  targetNode: sofaEndLeft
+
+- type: construction
+  parent: BaseChair
+  id: SofaCorner
+  targetNode: sofaCorner
+
+- type: construction
+  parent: BaseChair
+  id: SofaMiddleCorporate
+  targetNode: sofaMiddleCorporate
+
+- type: construction
+  parent: BaseChair
+  id: SofaEndRightCorporate
+  targetNode: sofaEndRightCorporate
+
+- type: construction
+  parent: BaseChair
+  id: SofaEndLeftCorporate
+  targetNode: sofaEndLeftCorporate
+
+- type: construction
+  parent: BaseChair
+  id: SofaCornerCorporate
+  targetNode: sofaCornerCorporate
+
+- type: construction
+  parent: BaseChair
+  id: PewMiddle
+  targetNode: pewMiddle
+
+- type: construction
+  parent: BaseChair
+  id: PewEndRight
+  targetNode: pewEndRight
+
+- type: construction
+  parent: BaseChair
+  id: PewEndLeft
+  targetNode: pewEndLeft
+
+# endregion Paradise Content - Sofas/Pews
 
 # region Tables
 - type: construction
@@ -345,7 +411,7 @@
   targetNode: MeatSpike
   canRotate: false
   conditions:
-  - !type:TileNotBlocked
+    - !type:TileNotBlocked
 
 - type: construction
   parent: BaseTable # close enough
@@ -373,7 +439,7 @@
   canRotate: true
   canBuildInImpassable: true
   conditions:
-  - !type:WallmountCondition
+    - !type:WallmountCondition
 
 - type: construction
   parent: BaseFurniture
@@ -382,4 +448,4 @@
   targetNode: mannequin
   canRotate: true
   conditions:
-  - !type:TileNotBlocked
+    - !type:TileNotBlocked
